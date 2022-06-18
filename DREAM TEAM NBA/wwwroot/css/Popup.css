@@ -1,0 +1,69 @@
+﻿
+.dialogDiv {
+    top: 200px; /*Distância fixa do topo da tela*/
+    left: 0;
+    right: 0;
+    width: 270px; /*Tamanho máximo do popup*/
+    margin-left: auto; /*margins laterais com AUTO indicam que o Popup ficará alinhado no meio da tela horizontalmente*/
+    margin-right: auto;
+    position: fixed; /*Terá uma posição fixa na tela, independentemente da rolagem*/
+    z-index: 1000; /*Deve ser o element mais à frente na página*/
+    display: none; /*Por default, o popup está escondido*/
+}
+
+.dialogSubDiv {
+    border-radius: 5px;
+}
+
+.dialogTextDiv {
+    /*background: #451531;*/
+    height: 50%;
+    position: relative;
+}
+
+.dialogTextTitle {
+    text-align: center;
+    padding-top: 5px;
+    color: white;
+}
+
+.popupSubDiv {
+    border-radius: 10px;
+}
+
+.dialogButtons {
+    text-align: center;
+    padding: 5px
+    height: 25%;
+}
+
+#popupText {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center
+}
+
+.botoes-alert {
+    background-color: #41abc3;
+    color: black;
+}
+
+#div_imgPopup {
+    position: relative;
+    width: 940px;
+    margin: 0 auto;
+}
+
+#popupDiv {
+    position: absolute;
+    top: 100px;
+}
+
+#caixa_alert_principal {
+    top: 100px;
+}
+
+#imgPopup {
+    width: 90%;
+}

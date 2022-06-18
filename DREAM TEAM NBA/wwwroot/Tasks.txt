@@ -1,0 +1,2 @@
+﻿-o que vai ter no admin: Times padrão, Times Criados, Times 
+-Link botão: https://www.delftstack.com/pt/howto/html/html-button-link/#:~:text=Por%20exemplo%2C%20escreva%20uma%20tag,here%20no%20atributo%20de%20valor.

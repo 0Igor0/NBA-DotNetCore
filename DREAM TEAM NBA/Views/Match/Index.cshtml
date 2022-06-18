@@ -1,0 +1,61 @@
+﻿   <div class="container" style="width: 1500px">
+        <main role="main" class="pb-3" style="width: 1500px">
+@{
+    var teams = ViewData["teams"] as List<Team>; //Estou recebendo uma lista com dados dos times, direto da controller, que pegou os dados da services.
+    Random InstanciaRandom = new Random();
+    var randomNumber = 0;
+    var atualTeam = new Team();//Instancio a variavel atualTeam que vai ser preenchida de acordo com o id aleatorio que vier no 'RandomTeam()'
+
+    Team RandomTeam(List<Team> allTeams)//essa função recebe uma lista como parametro, que vai ser usada no for, e de acordo com o id do for, retornamos um novo time com todos os dados
+    {
+        randomNumber = InstanciaRandom.Next(0, teams.Count - 1);
+        foreach (var team in allTeams)
+        {
+            if (randomNumber == team.TeamId)
+            {
+                atualTeam = team;
+            }
+        }
+        return atualTeam;
+    }
+    atualTeam = RandomTeam(teams);
+    //esse código c# só esta ai em cima para podermos usar a função RandomTeam
+}
+ 
+
+<h1 class="main-title">Create your dream team </h1>
+<!--faixa é a lista onde as 5 divs estão posicionadas-->
+<div class="faixa">
+    <ul class="positions-list">
+        @{
+            foreach (var player in @atualTeam.Players)
+            {
+                var randomTeam = RandomTeam(teams);//aqui eu atribuo os cliques em todos os times
+
+                <li><div></div><section onclick="ChosePlayer('@player.Position'); UpdateTeam('@randomTeam.Img','@randomTeam.Players[0].Name','@randomTeam.Players[1].Name','@randomTeam.Players[2].Name','@randomTeam.Players[3].Name','@randomTeam.Players[4].Name','@randomTeam.Players[0].Img','@randomTeam.Players[1].Img', '@randomTeam.Players[2].Img', '@randomTeam.Players[3].Img', '@randomTeam.Players[4].Img', '@player.Position' )"><img src="~/img/players/invisivel.png" class="player-box" id="@player.Position"></img></section>@player.Position</li>
+            }
+        }
+
+    </ul>
+</div>
+
+
+<!--essa é a parte da direita, onde colocamos os 5 nomes e o escudo-->
+<div class="box-logo-team">
+    <img src="~/img/logo-team/@atualTeam.Img" class="img-logo-team" id="team-logo">
+    <div class="box-options-players">
+        <label for="selected-box-players">Player</label>
+        <select id="selected-box-players" name="players-selected" multiple>
+
+            @foreach (var player in @atualTeam.Players)
+            {
+                <option value="@player.Img" id="@player.Position" class="menu" selected>@player.Position - @player.Name</option>
+            }
+
+        </select>
+    </div>
+</div>
+
+   
+        </main>
+    </div>
